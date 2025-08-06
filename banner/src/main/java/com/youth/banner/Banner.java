@@ -137,7 +137,7 @@ public class Banner<T, BA extends BannerAdapter<T, ? extends RecyclerView.ViewHo
         mViewPager2.setOffscreenPageLimit(2);
         mViewPager2.registerOnPageChangeCallback(mPageChangeCallback);
         mViewPager2.setPageTransformer(mCompositePageTransformer);
-        ScrollSpeedManger.reflectLayoutManager(this);
+       // ScrollSpeedManger.reflectLayoutManager(this);
         addView(mViewPager2);
 
         mRoundPaint = new Paint();
