@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -41,8 +40,8 @@ import com.youth.banner.transformer.ScaleInTransformer;
 import com.youth.banner.util.BannerLifecycleObserverAdapter;
 import com.youth.banner.util.BannerUtils;
 import com.youth.banner.util.BannerLifecycleObserver;
-import com.youth.banner.util.LogUtils;
 import com.youth.banner.util.ScrollSpeedManger;
+import com.youth.banner.util.ViewPager2ScrollDuration;
 
 import java.lang.annotation.Retention;
 import java.lang.ref.WeakReference;
@@ -137,7 +136,8 @@ public class Banner<T, BA extends BannerAdapter<T, ? extends RecyclerView.ViewHo
         mViewPager2.setOffscreenPageLimit(2);
         mViewPager2.registerOnPageChangeCallback(mPageChangeCallback);
         mViewPager2.setPageTransformer(mCompositePageTransformer);
-       // ScrollSpeedManger.reflectLayoutManager(this);
+        //ScrollSpeedManger.reflectLayoutManager(this);
+        ViewPager2ScrollDuration.setScrollDuration(this); // 3秒滑动
         addView(mViewPager2);
 
         mRoundPaint = new Paint();
